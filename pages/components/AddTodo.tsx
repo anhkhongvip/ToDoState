@@ -1,10 +1,12 @@
 import React, { useState, ChangeEvent} from 'react';
 import { Col, Form, Row, Button } from 'react-bootstrap';
+import { v4 as uuidv4 } from 'uuid';
 interface AddTodoProps {
   addTodo: AddTodo;
 }
 const AddTodo: React.FC<AddTodoProps> = ({ addTodo }) => {
   const [dataForm, setDataForm] = useState<itemsObject>({
+    id: uuidv4(),
     email: '' ,
     fullname: '',
     age: '',
@@ -19,6 +21,7 @@ const AddTodo: React.FC<AddTodoProps> = ({ addTodo }) => {
     addTodo(dataForm);
     console.log('Send successful');
     setDataForm({
+      id: uuidv4(),
       email: '' ,
       fullname: '',
       age: '',
